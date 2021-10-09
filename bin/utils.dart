@@ -73,6 +73,9 @@ Future<void> format(IShell shell) async {
   await shell.run('dart format --fix .');
   if (_hasNodeTooling(shell)) {
     await _formatMarkdown(shell);
+  } else {
+    print(
+        "WARNING: Skipping Markdown formatting as NPM or NPX are not available");
   }
 }
 
