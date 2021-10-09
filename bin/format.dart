@@ -8,6 +8,61 @@ import 'package:smart_arg/smart_arg.dart';
 import 'format.reflectable.dart';
 import 'main.dart';
 
+Future<List<ProcessResult>> runScript(
+  String script, {
+  bool verbose = false,
+}) async {
+  var result = await run(
+    script,
+    verbose: verbose,
+  );
+  return result;
+}
+
+Future<void> formatMarkdown(bool isVerbose) async {
+  print('Formatting Markdown Files');
+  print('Installing Remark Tools');
+  await runScript('''
+npm install --silent --no-save --no-audit --no-fund \\
+  remark-cli \\
+  remark-toc \\
+  remark-gfm \\
+  ccount \\
+  mdast-util-find-and-replace
+''');
+  var remarkRc = File('.remarkrc.js');
+  var exists = remarkRc.existsSync();
+  if (!exists) {
+    print('Creating ${remarkRc.path}');
+    remarkRc.createSync();
+    remarkRc.writeAsString('''
+module.exports = {
+  frail: true,
+  plugins: {
+    toc: {
+      tight: true
+    },
+    'remark-gfm': true
+  },
+  settings: {
+    bullet: '*',
+    incrementListMarker: false,
+    listItemIndent: '1'
+  }
+} 
+''');
+  }
+  try {
+    print('Running Remark');
+    await runScript('npx remark . --output');
+  } finally {
+    if (!exists) {
+      print('Cleaning Up ${remarkRc.path}');
+      remarkRc.deleteSync();
+    }
+  }
+}
+
 @SmartArg.reflectable
 @Parser(
     description: 'Formats the various sources and files within the codebase')
@@ -22,17 +77,8 @@ class FormatCommand extends SmartArgCommand {
       exit(1);
     }
     var isVerbose = cast<Args>(parentArguments)?.verbose ?? false;
-    Future<void> runScript(String script) async {
-      var run2 = await run(
-        script,
-        verbose: isVerbose,
-      );
-      if (!isVerbose) {
-        print(run2.outText);
-      }
-    }
-
     print('Running Format');
-    await runScript('dart format --fix .');
+    await runScript('dart format --fix .', verbose: isVerbose);
+    await formatMarkdown(isVerbose);
   }
 }

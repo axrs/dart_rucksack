@@ -13,3 +13,5 @@ pubspec.lock
 #IML Configurations
 .idea/
 *.iml
+
+node_modules/
