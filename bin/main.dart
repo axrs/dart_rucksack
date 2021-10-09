@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dart_rucksack/src/shell.dart';
+import 'package:dart_rucksack/rucksack.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smart_arg/smart_arg.dart';
 
@@ -58,7 +58,7 @@ void _printUsageAndExit(Args args) {
 void main(List<String> arguments) {
   initializeReflectable();
   var args = Args()..parse(arguments);
-  if (args.help == true || !args.commandRun) {
+  if (isTrue(args.help) || isFalse(args.commandRun)) {
     _printUsageAndExit(args);
   }
 }

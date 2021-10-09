@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dart_rucksack/src/shell.dart';
+import 'package:dart_rucksack/rucksack.dart';
 import 'package:get_it/get_it.dart';
 import 'package:smart_arg/smart_arg.dart';
 
@@ -16,7 +16,7 @@ class TestCommand extends SmartArgCommand {
 
   @override
   Future<void> execute(SmartArg parentArguments) async {
-    if (help == true) {
+    if (isTrue(help)) {
       print(usage());
       exit(1);
     }
