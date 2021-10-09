@@ -1,0 +1,19 @@
+name: dart_rucksack
+description: A collection of Utilities and Helper functions for Dart
+version: 0.0.1
+homepage: https://github.com/axrs/dart_rucksack
+repository: https://github.com/axrs/dart_rucksack.git
+issue_tracker: https://github.com/axrs/dart_rucksack/issues
+
+environment:
+  sdk: '>=2.15.0-150.0.dev <3.0.0'
+
+dev_dependencies:
+  lints: ^1.0.0
+  test: ^1.16.0
+  process_run: ^0.12.2+1
+  smart_arg:
+    git:
+      url: https://github.com/axrs/smart_arg.git
+      ref: v.1.2.0
+  reflectable: ^3.0.0
