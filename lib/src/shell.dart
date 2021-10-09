@@ -3,8 +3,11 @@ import 'dart:io';
 import 'package:dart_rucksack/src/objects.dart';
 import 'package:dart_rucksack/src/strings.dart';
 import 'package:process_run/shell.dart' as pr;
+
 // ignore: implementation_imports
 import 'package:process_run/src/shell_utils.dart' show scriptToCommands;
+
+import 'booleans.dart';
 
 /// A marker interface representing a basic Shell to run and evaluate commands
 ///
@@ -32,6 +35,11 @@ abstract class IShell {
   ///
   /// {@since 0.0.1}
   bool hasCommand(String command);
+
+  /// Throws [CommandNotFoundException] if the provided command is not present in the \$PATH
+  ///
+  /// {@since 0.0.1}
+  void requireCommand(String command);
 }
 
 /// A marker interface implemented by all Command Execution exceptions
@@ -43,18 +51,32 @@ abstract class IShell {
 /// {@since 0.0.1}
 class CommandException implements Exception {}
 
+/// Exception thrown when a Command is not found within the $PATH
+///
+/// {@since 0.0.1}
+class CommandNotFoundException implements CommandException {
+  final String command;
+
+  CommandNotFoundException(this.command);
+
+  @override
+  String toString() {
+    return 'CommandNotFoundException: $command. Check your \$PATH or install the missing executable for your operating system.';
+  }
+}
+
 /// Exception thrown when multiple commands to be run have been detected
 ///
 /// {@since 0.0.1}
 class MultipleScriptCommandException implements CommandException {
   final String cause;
-  final String script;
+  final String command;
 
-  MultipleScriptCommandException(this.cause, this.script);
+  MultipleScriptCommandException(this.cause, this.command);
 
   @override
   String toString() {
-    return 'MultipleScriptCommandException: $cause\n$script';
+    return 'MultipleScriptCommandException: $cause\n$command';
   }
 }
 
@@ -123,5 +145,13 @@ class ProcessRunShell implements IShell {
   @override
   bool supportsColorOutput() {
     return color;
+  }
+
+  @override
+  void requireCommand(String command) {
+    _requireSingleCommand(command);
+    if (isFalse(hasCommand(command))) {
+      throw CommandNotFoundException(command);
+    }
   }
 }
