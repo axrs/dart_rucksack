@@ -6,6 +6,7 @@ import 'package:smart_arg/smart_arg.dart';
 
 // ignore: unused_import
 import 'lint.reflectable.dart';
+import 'utils.dart';
 
 @SmartArg.reflectable
 @Parser(description: 'Lints the various sources and files within the codebase')
@@ -20,7 +21,6 @@ class LintCommand extends SmartArgCommand {
       exit(1);
     }
     var shell = GetIt.instance<IShell>();
-    print('Running Lint');
-    await shell.run('dart analyze');
+    lint(shell);
   }
 }

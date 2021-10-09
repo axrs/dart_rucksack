@@ -19,6 +19,9 @@ class Args extends SmartArg {
   @BooleanArgument(short: 'v', help: 'Enable Command Verbose Mode')
   late bool verbose = false;
 
+  @BooleanArgument(help: 'Enabled Colored Output')
+  late bool color = false;
+
   @Command(help: 'Lints the codebase')
   late LintCommand lint;
 
@@ -31,7 +34,7 @@ class Args extends SmartArg {
   @HelpArgument()
   late bool help = false;
 
-  bool commandRun = false;
+  late bool commandRun = false;
 
   @override
   void beforeCommandExecute(SmartArgCommand command) {

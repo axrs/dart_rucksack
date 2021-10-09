@@ -20,3 +20,4 @@ dev_dependencies:
       ref: v.1.2.0
   reflectable: ^3.0.0
   get_it: ^7.2.0
+  collection: ^1.15.0
