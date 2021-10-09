@@ -14,7 +14,7 @@ jobs:
           paths:
             - ~/.pub-cache
       - run: "bash dart_rucksack.sh -v test"
-      - run: "bash dart_rucksack.sh -v analyze"
+      - run: "bash dart_rucksack.sh -v lint"
       - run: "bash dart_rucksack.sh -v format"
       - run: "git diff-index --name-status HEAD"
 
