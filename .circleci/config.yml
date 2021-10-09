@@ -13,9 +13,9 @@ jobs:
           key: pub-cache-v1--{{ .Branch }}-{{ checksum "pubspec.yaml" }}
           paths:
             - ~/.pub-cache
-      - run: "./dart_rucksack.sh -v test"
-      - run: "./dart_rucksack.sh -v analyze"
-      - run: "./dart_rucksack.sh -v format"
+      - run: "bash dart_rucksack.sh -v test"
+      - run: "bash dart_rucksack.sh -v analyze"
+      - run: "bash dart_rucksack.sh -v format"
       - run: "git diff-index --name-status HEAD"
 
 workflows:
