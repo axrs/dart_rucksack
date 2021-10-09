@@ -1,12 +1,11 @@
 import 'dart:io';
 
-import 'package:dart_rucksack/rucksack.dart';
-import 'package:process_run/shell.dart';
+import 'package:dart_rucksack/src/shell.dart';
+import 'package:get_it/get_it.dart';
 import 'package:smart_arg/smart_arg.dart';
 
 // ignore: unused_import
 import 'lint.reflectable.dart';
-import 'main.dart';
 
 @SmartArg.reflectable
 @Parser(description: 'Lints the various sources and files within the codebase')
@@ -20,18 +19,8 @@ class LintCommand extends SmartArgCommand {
       print(usage());
       exit(1);
     }
-    var isVerbose = cast<Args>(parentArguments)?.verbose ?? false;
-    Future<void> runScript(String script) async {
-      var run2 = await run(
-        script,
-        verbose: isVerbose,
-      );
-      if (!isVerbose) {
-        print(run2.outText);
-      }
-    }
-
+    var shell = GetIt.instance<IShell>();
     print('Running Lint');
-    await runScript('dart analyze');
+    await shell.run('dart analyze');
   }
 }
