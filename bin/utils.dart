@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dart_rucksack/rucksack.dart';
 
-/// Installes the project dependencies
+/// Installs the project dependencies
 Future<void> installDependencies(IShell shell) async {
   print('Downloading Dependencies');
   await shell.run('dart pub get');
@@ -31,9 +31,15 @@ module.exports = {
 } 
 ''';
 
+/// True if the current environment has node tooling configured
+bool _hasNodeTooling(IShell shell) {
+  return shell.hasCommand('npm') && shell.hasCommand('npx');
+}
+
 Future<void> _formatMarkdown(IShell shell) async {
   print('Formatting Markdown Files');
   print('Installing Remark Tools');
+  shell.requireCommand('npm');
   await shell.run('''
 npm install --silent --no-save --no-audit --no-fund \\
   remark-cli \\
@@ -43,17 +49,18 @@ npm install --silent --no-save --no-audit --no-fund \\
   mdast-util-find-and-replace
 ''');
   var remarkRc = File('.remarkrc.js');
-  var exists = remarkRc.existsSync();
-  if (!exists) {
+  var remarcConfigIsMissing = isFalse(remarkRc.existsSync());
+  if (remarcConfigIsMissing) {
     print('Creating ${remarkRc.path}');
     remarkRc.createSync();
     remarkRc.writeAsString(_remarkConfig);
   }
   try {
     print('Running Remark');
+    shell.requireCommand('npx');
     await shell.run('npx remark . --output');
   } finally {
-    if (!exists) {
+    if (remarcConfigIsMissing) {
       print('Cleaning Up ${remarkRc.path}');
       remarkRc.deleteSync();
     }
@@ -64,7 +71,12 @@ npm install --silent --no-save --no-audit --no-fund \\
 Future<void> format(IShell shell) async {
   print('Formatting Dart');
   await shell.run('dart format --fix .');
-  await _formatMarkdown(shell);
+  if (_hasNodeTooling(shell)) {
+    await _formatMarkdown(shell);
+  } else {
+    print(
+        "WARNING: Skipping Markdown formatting as NPM or NPX are not available");
+  }
 }
 
 /// Tests the code base

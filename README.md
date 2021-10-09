@@ -1,39 +1,28 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Rucksack
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+Rucksack is a collection of helper functions and utilities aimed to make code easier to read.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+![GitHub last commit](https://img.shields.io/github/last-commit/axrs/dart\_rucksack)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/axrs/dart\_rucksack/latest)
+![GitHub commits since latest release (by SemVer including pre-releases)](https://img.shields.io/github/commits-since/axrs/dart\_rucksack/latest?include\_prereleases)
+[![CircleCI](https://circleci.com/gh/axrs/dart\_rucksack/tree/master.svg?style=svg)](https://circleci.com/gh/axrs/dart\_rucksack/tree/master)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Boolean Helpers
+* Collection Helpers
+* Object Helpers
+* Shell/Process Helpers
+* String Helpers
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+TODO
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
-```
+TODO
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+TODO
