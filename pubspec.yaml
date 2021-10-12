@@ -17,7 +17,7 @@ dev_dependencies:
   smart_arg:
     git:
       url: https://github.com/axrs/smart_arg.git
-      ref: v.1.2.0
+      ref: v.2.0.0
   reflectable: ^3.0.0
   get_it: ^7.2.0
   collection: ^1.15.0

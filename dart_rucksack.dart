@@ -37,7 +37,7 @@ void _deleteSync(FileSystemEntity e) {
 }
 
 Future<void> main() async {
-  Directory dir = Directory('bin');
+  Directory dir = Directory('cli');
   var rebuildRequired = false;
   var files = dir.listSync(recursive: false).where(_isDartFile);
   groupBy(files, _rootName).forEach((key, value) {
