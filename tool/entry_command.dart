@@ -9,7 +9,7 @@ import 'format_command.dart';
 import 'lint_command.dart';
 import 'test_command.dart';
 // ignore: unused_import
-import 'main_command.reflectable.dart';
+import 'entry_command.reflectable.dart';
 
 @SmartArg.reflectable
 @Parser(

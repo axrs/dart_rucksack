@@ -3,13 +3,9 @@ import 'objects.dart';
 /// True if the provided [String] value [v] is not null and is not blank (whitespaces)
 ///
 /// {@since 0.0.1}
-bool isNotBlank(final String? v) {
-  return isNotNull(v) && v!.trim().isNotEmpty;
-}
+bool isNotBlank(final String? v) => isNotNull(v) && v!.trim().isNotEmpty;
 
 /// True if the provided [String] value [v] is null or blank (whitespace only)
 ///
 /// {@since 0.0.1}
-bool isBlank(final String? v) {
-  return isNull(v) || v!.trim().isEmpty;
-}
+bool isBlank(final String? v) => isNull(v) || v!.trim().isEmpty;

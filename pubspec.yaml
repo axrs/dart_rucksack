@@ -16,4 +16,3 @@ dev_dependencies:
     git: https://github.com/axrs/dart_chassis_forge.git
   lints: ^1.0.0
   test: ^1.16.0
-  collection: ^1.15.0
