@@ -12,7 +12,7 @@ import 'test_command.dart';
 
 @SmartArg.reflectable
 @Parser(
-  description: 'dart_rucksack Project Helper Tools',
+  description: 'Dart Rucksack Project Helper Tools',
 )
 class Args extends SmartArg {
   @BooleanArgument(short: 'v', help: 'Enable Command Verbose Mode')
@@ -21,13 +21,13 @@ class Args extends SmartArg {
   @BooleanArgument(help: 'Enabled Colored Output')
   late bool color = false;
 
-  @Command(help: 'Lints the codebase')
+  @Command(help: lintDescription)
   late LintCommand lint;
 
-  @Command(help: 'Formats the codebase, modifying files.')
+  @Command(help: formatDescription)
   late FormatCommand format;
 
-  @Command(help: 'Runs the codebase tests')
+  @Command(help: testDescription)
   late TestCommand test;
 
   @HelpArgument()
