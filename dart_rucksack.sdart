@@ -1,9 +1,8 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
-import 'package:dart_rucksack/src/shell.dart';
+import 'package:dart_chassis_forge/chassis_forge_dart.dart'
 
-import './bin/utils.dart';
 
 /// Rebuilds the Reflectables (for command line parsing)
 /// This should never need to be called from within the CLI
@@ -37,7 +36,7 @@ void _deleteSync(FileSystemEntity e) {
 }
 
 Future<void> main() async {
-  Directory dir = Directory('bin');
+  Directory dir = Directory('cli');
   var rebuildRequired = false;
   var files = dir.listSync(recursive: false).where(_isDartFile);
   groupBy(files, _rootName).forEach((key, value) {

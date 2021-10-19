@@ -13,11 +13,15 @@ jobs:
           key: pub-cache-v1--{{ .Branch }}-{{ checksum "pubspec.yaml" }}
           paths:
             - ~/.pub-cache
-      - run: "bash dart_rucksack.sh -v test"
-      - run: "bash dart_rucksack.sh -v lint"
-      - run: "bash dart_rucksack.sh -v format"
+      - run:
+          name: Setup Environment Variables
+          command: |
+            echo 'export PATH=$DART_SDK/bin:$PATH' >> $BASH_ENV
+      - run: "bash dart_rucksack.sh --verbose deps"
+      - run: "bash dart_rucksack.sh --verbose test"
+      - run: "bash dart_rucksack.sh --verbose lint"
+      - run: "bash dart_rucksack.sh --verbose format"
       - run: "git diff-index --name-status HEAD"
-
 workflows:
   main:
     jobs:

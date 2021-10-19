@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-if [ ! -d ".dart_tool" ] || [ ! -f "pubspec.lock" ];then
+if [ ! -d '.dart_tool' ] || [ ! -f 'pubspec.lock' ];then
   dart pub get >/dev/null
 fi
-dart run dart_rucksack.dart
+dart run dart_chassis_forge:build >/dev/null
 # shellcheck disable=SC2068
-dart run bin/main.dart $@
+dart run tool/entry_command.dart $@
