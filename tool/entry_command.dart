@@ -6,6 +6,7 @@ import 'package:smart_arg/smart_arg.dart';
 
 // ignore: unused_import
 import 'entry_command.reflectable.dart';
+import 'deps_command.dart';
 import 'format_command.dart';
 import 'lint_command.dart';
 import 'test_command.dart';
@@ -20,6 +21,9 @@ class Args extends SmartArg {
 
   @BooleanArgument(help: 'Enabled Colored Output')
   late bool color = false;
+
+  @Command(help: depsDescription)
+  late DepsCommand deps;
 
   @Command(help: lintDescription)
   late LintCommand lint;

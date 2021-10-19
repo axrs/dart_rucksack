@@ -13,6 +13,7 @@ jobs:
           key: pub-cache-v1--{{ .Branch }}-{{ checksum "pubspec.yaml" }}
           paths:
             - ~/.pub-cache
+      - run: "bash dart_rucksack.sh --verbose deps"
       - run: "bash dart_rucksack.sh --verbose test"
       - run: "bash dart_rucksack.sh --verbose lint"
       - run: "bash dart_rucksack.sh --verbose format"
