@@ -7,6 +7,7 @@ import 'package:smart_arg/smart_arg.dart';
 // ignore: unused_import
 import 'entry_command.reflectable.dart';
 import 'deps_command.dart';
+import 'docs_command.dart';
 import 'format_command.dart';
 import 'lint_command.dart';
 import 'test_command.dart';
@@ -24,6 +25,9 @@ class Args extends SmartArg {
 
   @Command(help: depsDescription)
   late DepsCommand deps;
+
+  @Command(help: docsDescription)
+  late DocsCommand docs;
 
   @Command(help: lintDescription)
   late LintCommand lint;
