@@ -1,14 +1,12 @@
 import 'package:dart_chassis_forge/chassis_forge.dart' as chassis;
+import 'package:dart_chassis_forge/chassis_forge_dart.dart' as chassis_dart;
 import 'package:smart_arg/smart_arg.dart';
 
-const String formatDescription =
-    'Formats the various sources and files within the codebase';
+const String docsDescription = 'Builds the API documentation';
 
 @SmartArg.reflectable
-@Parser(
-  description: 'Formats the various sources and files within the codebase',
-)
-class FormatCommand extends chassis.ChassisCommand {
+@Parser(description: docsDescription)
+class DocsCommand extends chassis.ChassisCommand {
   @HelpArgument()
   late bool help = false;
 
@@ -17,6 +15,6 @@ class FormatCommand extends chassis.ChassisCommand {
     final chassis.IShell shell,
     final SmartArg parentArguments,
   ) async {
-    await chassis.format(shell);
+    await chassis_dart.doc(shell);
   }
 }

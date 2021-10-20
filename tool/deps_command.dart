@@ -2,9 +2,6 @@ import 'package:dart_chassis_forge/chassis_forge.dart' as chassis;
 import 'package:dart_chassis_forge/chassis_forge_dart.dart' as chassis_dart;
 import 'package:smart_arg/smart_arg.dart';
 
-// ignore: unused_import
-import 'lint_command.reflectable.dart';
-
 const String depsDescription = 'Installs the projects dependencies';
 
 @SmartArg.reflectable
