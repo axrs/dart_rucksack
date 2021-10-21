@@ -1,3 +1,4 @@
+/// A collection of helper functions and utilities aimed to make code easier to read.
 library rucksack;
 
 export 'src/booleans.dart';

@@ -1,4 +1,4 @@
-import 'package:dart_rucksack/src/strings.dart' as strings;
+import 'package:rucksack/src/strings.dart' as strings;
 import 'package:test/test.dart';
 
 void main() {

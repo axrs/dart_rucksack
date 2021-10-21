@@ -1,4 +1,4 @@
-import 'package:dart_rucksack/src/booleans.dart' as booleans;
+import 'package:rucksack/src/booleans.dart' as booleans;
 import 'package:test/test.dart';
 
 void main() {

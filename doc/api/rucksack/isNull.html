@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the cast function from the rucksack library, for the Dart programming language.">
-  <title>cast function - rucksack library - Dart API</title>
+  <meta name="description" content="API docs for the isNull function from the rucksack library, for the Dart programming language.">
+  <title>isNull function - rucksack library - Dart API</title>
 
 
   
@@ -29,11 +29,11 @@
 <header id="title">
   <button id="sidenav-left-toggle" type="button">&nbsp;</button>
   <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="../index.html">dart_rucksack</a></li>
+    <li><a href="../index.html">rucksack</a></li>
     <li><a href="../rucksack/rucksack-library.html">rucksack</a></li>
-    <li class="self-crumb">cast&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+    <li class="self-crumb">isNull function</li>
   </ol>
-  <div class="self-name">cast</div>
+  <div class="self-name">isNull</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,7 +44,7 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-function">cast&lt;<wbr><span class="type-parameter">T</span>&gt;</span> function 
+<h1><span class="kind-function">isNull</span> function 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
  
 </h1></div>
@@ -52,23 +52,22 @@
     <section class="multi-line-signature">
         
 
-<span class="returntype">T?</span>
-<span class="name ">cast</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="cast-param-x"><span class="type-annotation">dynamic</span> <span class="parameter-name">x</span></span></li>
+<span class="returntype"><a href="https://api.dart.dev/dev/2.15.0-150.0.dev/dart-core/bool-class.html">bool</a></span>
+<span class="name ">isNull</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="isNull-param-value"><span class="type-annotation">dynamic</span> <span class="parameter-name">value</span></span></li>
 </ol>)
 
     </section>
     
 <section class="desc markdown">
-  <p>Casts <code>x</code> to the specified type <code>T</code> if it is an instance of <code>T</code>.
-Null if <code>x</code> is not an instance of <code>T</code></p>
-<p>{@since 0.0.1}</p>
+  <p>True if the dynamic <code>value</code> is null</p>
+<p><code>since 0.0.1</code></p>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">T? cast&lt;T&gt;(final dynamic x) =&gt; x is T ? x : null;</code></pre>
+  <pre class="language-dart"><code class="language-dart">bool isNull(final dynamic value) =&gt; value == null;</code></pre>
 </section>
 
 
@@ -82,9 +81,9 @@ Null if <code>x</code> is not an instance of <code>T</code></p>
 </header>
 
 <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-  <li><a href="../index.html">dart_rucksack</a></li>
+  <li><a href="../index.html">rucksack</a></li>
   <li><a href="../rucksack/rucksack-library.html">rucksack</a></li>
-  <li class="self-crumb">cast&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+  <li class="self-crumb">isNull function</li>
 </ol>
 
 
@@ -119,7 +118,7 @@ Null if <code>x</code> is not an instance of <code>T</code></p>
 
 <footer>
   <span class="no-break">
-    dart_rucksack
+    rucksack
       0.0.1
   </span>
 

@@ -1,4 +1,4 @@
-import 'package:dart_rucksack/src/collections.dart' as collections;
+import 'package:rucksack/src/collections.dart' as collections;
 import 'package:test/test.dart';
 
 void main() {

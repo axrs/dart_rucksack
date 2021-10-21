@@ -1,4 +1,4 @@
-name: dart_rucksack
+name: rucksack
 description: A collection of Utilities and Helper functions for Dart
 version: 0.0.1
 homepage: https://github.com/axrs/dart_rucksack
@@ -9,6 +9,10 @@ environment:
   sdk: '>=2.12.0 <3.0.0'
 
 dev_dependencies:
+  smart_arg:
+    git:
+      url: https://github.com/axrs/smart_arg.git
+      ref: master
   dart_chassis_forge:
     git:
       url: https://github.com/axrs/dart_chassis_forge.git
