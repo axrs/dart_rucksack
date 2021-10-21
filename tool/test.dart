@@ -1,19 +1,21 @@
-import 'package:dart_chassis_forge/chassis_forge.dart' as chassis;
+import 'package:chassis_forge/chassis_forge.dart';
+import 'package:chassis_forge/chassis_forge_dart.dart';
 import 'package:smart_arg/smart_arg.dart';
 
 const String testDescription = 'Runs the various Tests against the Codebase';
 
 @SmartArg.reflectable
 @Parser(description: testDescription)
-class TestCommand extends chassis.ChassisCommand {
+class TestCommand extends ChassisCommand {
+  @override
   @HelpArgument()
   late bool help = false;
 
   @override
   Future<void> run(
-    final chassis.IShell shell,
+    final IShell shell,
     final SmartArg parentArguments,
   ) async {
-    await chassis.test(shell);
+    await shell.verbose().colored().dartTest();
   }
 }

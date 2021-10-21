@@ -1,4 +1,6 @@
-import 'package:dart_chassis_forge/chassis_forge.dart' as chassis;
+import 'package:chassis_forge/chassis_forge.dart';
+import 'package:chassis_forge/chassis_forge_dart.dart';
+import 'package:chassis_forge/chassis_forge_markdown.dart';
 import 'package:smart_arg/smart_arg.dart';
 
 const String formatDescription =
@@ -8,15 +10,18 @@ const String formatDescription =
 @Parser(
   description: 'Formats the various sources and files within the codebase',
 )
-class FormatCommand extends chassis.ChassisCommand {
+class FormatCommand extends ChassisCommand {
+  @override
   @HelpArgument()
   late bool help = false;
 
   @override
   Future<void> run(
-    final chassis.IShell shell,
+    final IShell shell,
     final SmartArg parentArguments,
   ) async {
-    await chassis.format(shell);
+    await shell
+        .dartFormat() //
+        .markdownFormat();
   }
 }

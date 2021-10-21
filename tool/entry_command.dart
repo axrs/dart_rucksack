@@ -1,16 +1,17 @@
 import 'dart:io';
 
-import 'package:dart_chassis_forge/chassis_forge.dart';
+import 'package:chassis_forge/chassis_forge.dart';
 import 'package:rucksack/rucksack.dart';
 import 'package:smart_arg/smart_arg.dart';
 
+import 'deps.dart';
+import 'docs.dart';
+
 // ignore: unused_import
 import 'entry_command.reflectable.dart';
-import 'deps_command.dart';
-import 'docs_command.dart';
-import 'format_command.dart';
-import 'lint_command.dart';
-import 'test_command.dart';
+import 'format.dart';
+import 'lint.dart';
+import 'test.dart';
 
 @SmartArg.reflectable
 @Parser(
