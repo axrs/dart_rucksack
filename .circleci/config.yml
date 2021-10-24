@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   test-analyze-format-job:
     docker:
-      - image: dart:stable-sdk
+      - image: axrs/anvil:base
     steps:
       - checkout
       - restore_cache:
