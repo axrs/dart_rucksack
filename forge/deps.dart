@@ -2,11 +2,11 @@ import 'package:chassis_forge/chassis_forge.dart';
 import 'package:chassis_forge/chassis_forge_dart.dart';
 import 'package:smart_arg/smart_arg.dart';
 
-const String testDescription = 'Runs the various Tests against the Codebase';
+const String depsDescription = 'Installs the projects dependencies';
 
 @SmartArg.reflectable
-@Parser(description: testDescription)
-class TestCommand extends ChassisCommand {
+@Parser(description: depsDescription)
+class DepsCommand extends ChassisCommand with HelpOption {
   @override
   @HelpArgument()
   late bool help = false;
@@ -16,6 +16,6 @@ class TestCommand extends ChassisCommand {
     final IShell shell,
     final SmartArg parentArguments,
   ) async {
-    await shell.verbose().colored().dartTest();
+    await shell.dartInstallDependencies();
   }
 }

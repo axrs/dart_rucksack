@@ -1,6 +1,10 @@
 targets:
   $default:
+    sources:
+      - forge/**
+      - $package$
+      - lib/$lib$
     builders:
       reflectable:
         generate_for:
-          - tool/**_command.dart
+          - forge/main.dart

@@ -10,7 +10,7 @@ const String formatDescription =
 @Parser(
   description: 'Formats the various sources and files within the codebase',
 )
-class FormatCommand extends ChassisCommand {
+class FormatCommand extends ChassisCommand with HelpOption {
   @override
   @HelpArgument()
   late bool help = false;

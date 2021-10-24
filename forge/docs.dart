@@ -2,12 +2,11 @@ import 'package:chassis_forge/chassis_forge.dart';
 import 'package:chassis_forge/chassis_forge_dart.dart';
 import 'package:smart_arg/smart_arg.dart';
 
-const String lintDescription =
-    'Lints the various sources and files within the codebase';
+const String docsDescription = 'Builds the API documentation';
 
 @SmartArg.reflectable
-@Parser(description: lintDescription)
-class LintCommand extends ChassisCommand {
+@Parser(description: docsDescription)
+class DocsCommand extends ChassisCommand with HelpOption {
   @override
   @HelpArgument()
   late bool help = false;
@@ -17,6 +16,6 @@ class LintCommand extends ChassisCommand {
     final IShell shell,
     final SmartArg parentArguments,
   ) async {
-    await shell.verbose().dartAnalyze();
+    await shell.dartDoc();
   }
 }
