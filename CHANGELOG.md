@@ -1,7 +1,15 @@
-## 0.0.2 - Unreleased
+# Changelog
 
-* Chore: Update Chassis Forge
+All notable changes to this project will be documented in this file.
 
-## 0.0.1
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-* Initial version.
+## \[unreleased]
+
+* \[Chore] - Use [Anvil](https://github.com/axrs/anvil) as the Docker Test Container
+* \[Chore] - Upgrade Chassis Forge and remove some boilerplate
+* \[Chore] - Rebuilt Documentation
+
+## \[0.0.1] - 2021-10-21
+
+* Initial Release
