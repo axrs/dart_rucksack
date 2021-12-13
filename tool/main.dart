@@ -2,10 +2,8 @@ import 'package:chassis_forge/chassis_forge.dart';
 import 'package:chassis_forge/smart_arg.dart';
 
 import 'deps.dart';
-import 'docs.dart';
 import 'format.dart';
 import 'lint.dart';
-
 // ignore: unused_import
 import 'main.reflectable.dart';
 import 'test.dart';
@@ -24,9 +22,6 @@ class Forge extends ChassisForge with HelpOption, VerboseOption {
 
   @Command(help: depsDescription)
   late DepsCommand deps;
-
-  @Command(help: docsDescription)
-  late DocsCommand docs;
 
   @Command(help: lintDescription)
   late LintCommand lint;

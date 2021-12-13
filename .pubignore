@@ -3,5 +3,4 @@
 *.ps1
 *.reflectable.dart
 *.sh
-node_modules
 tool
