@@ -16,4 +16,5 @@ pubspec.lock
 .idea/
 *.iml
 
+.chassis/
 node_modules/
